@@ -1,8 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Lottie from "react-lottie";
+import AnimIc from "./arrowAnim.json";
 import "./index.scss";
 
 const LandingPage = () => {
+  const [animationSpeed, setAnimationSpeed] = React.useState(0.3);
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: AnimIc,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <div className="landing-page relative w-full h-screen overflow-hidden">
       {/* Curtain Overlay */}
@@ -12,6 +24,8 @@ const LandingPage = () => {
         animate={{ y: "-100%" }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
+
+      <div className="black-overlay"></div>
 
       {/* Background Video */}
       <video
@@ -24,13 +38,25 @@ const LandingPage = () => {
       ></video>
 
       {/* Text with Staggered Fade-in Effect */}
+
+      <div className="down-arrow">
+        {" "}
+        <Lottie
+          options={defaultOptions}
+          isStopped={false}
+          height={250}
+          width={250}
+          speed={animationSpeed}
+        />
+      </div>
+
       <motion.h1
-        className="absolute top-1/3 text-[7.5vw] left-2/4 transform -translate-x-2/4 text-white text-5xl flex justify-center items-center z-20"
+        className="absolute top-1/3 text-[7.5vw] w-2/5 left-2/4 transform  text-white text-5xl flex justify-center items-center z-20"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
       >
-        Art in Motion and More
+        Art in Motion & More
       </motion.h1>
     </div>
   );

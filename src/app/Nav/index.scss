@@ -1,0 +1,76 @@
+// styles/index.scss
+
+.nav-container {
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+  svg {
+    path {
+      fill: white;
+    }
+  }
+}
+
+.hamburger.active {
+  transition: all 0.3s ease;
+  transform: rotate(45deg);
+}
+
+.fullpage-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #6b8e23; /* Olive green background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  color: white;
+  font-family: Arial, sans-serif;
+
+  .nav-content {
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ddd;
+      }
+    }
+  }
+
+  .nav-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+
+    .social-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
