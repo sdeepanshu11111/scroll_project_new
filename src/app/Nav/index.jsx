@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./index.scss";
+import Link from "next/link";
 import NavIcon from "../assets/navSvg";
 
 const Nav = () => {
@@ -57,9 +58,9 @@ const Nav = () => {
           variants={navVariants} // Apply the stagger effect to the parent
         >
           <motion.div className="nav-content">
-            {["projects", "studio", "contact"].map((text, index) => (
+            {["projects", "studio", "contact", "about"].map((text, index) => (
               <motion.h1 key={index} variants={itemVariants}>
-                {text}
+                <Link href={`/${text}`}>{text}</Link>
               </motion.h1>
             ))}
           </motion.div>
